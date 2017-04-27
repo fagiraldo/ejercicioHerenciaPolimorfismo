@@ -5,6 +5,9 @@
  */
 package modelo;
 
+import Excepciones.ExcepcionLenguaje;
+import Excepciones.ExcepcionNombre;
+import Excepciones.ExcepcionSalario;
 import java.util.ArrayList;
 
 /**
@@ -14,12 +17,17 @@ import java.util.ArrayList;
 public class LiderProyecto extends Programador{
     private ArrayList<Programador> programadores;
 
-    public LiderProyecto(String lenguaje, String nombre, double salario, int id) {
+    public LiderProyecto(String lenguaje, String nombre, double salario, int id) 
+    throws ExcepcionNombre, ExcepcionSalario, ExcepcionLenguaje{
         super(lenguaje, nombre, salario, id);
         this.programadores = new ArrayList<>();
     }
     public void agregarProgramador(Programador p){
       this.programadores.add(p);
+    }
+
+    public ArrayList<Programador> getProgramadores() {
+        return programadores;
     }
     
     @Override
